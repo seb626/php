@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Students{% endblock %}
+
+{% block body %}
+<h1>Students</h1>
+<h2>SELECT de plusieurs lignes</h2>
+<table>
+  <tr>
+    <th>id</th>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>promotion</th>
+    <th>sex</th>
+  </tr>
+{% for student in students2 %}
+  <tr class="student" data-id="{{ student.id|e('html_attr') }}">
+    <td><a href="/student-edit.php?id={{ student.id|e('html_attr') }}">{{ student.id }}</a></td>
+    <td><a href="/student-edit.php?id={{ student.id|e('html_attr') }}">{{ student.firstname }}</a></td>
+    <td><a href="/student-edit.php?id={{ student.id|e('html_attr') }}">{{ student.lastname }}</a></td>
+    <td><a href="/student-edit.php?id={{ student.id|e('html_attr') }}">{{ student.name }}</a></td>
+    <td><a href="/student-edit.php?id={{ student.id|e('html_attr') }}">{{ student.sex }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
